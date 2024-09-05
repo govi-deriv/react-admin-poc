@@ -10,7 +10,7 @@ const id_replacement: Record<string, string> = {
     'payment_gateway': 'code',
     'payment_type': 'code',
     'loginid': 'loginid',
-    'account_summary': 'client_loginid',
+    'account_summary': 'account_id',
 }
 
 const resolveIdParam = (type: string): string => id_replacement[type] ?? 'id';

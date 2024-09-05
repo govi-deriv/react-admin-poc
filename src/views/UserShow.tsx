@@ -10,22 +10,22 @@ export const UserShow = () => (
                 <DateField source="created_at" />
             </TabbedShowLayout.Tab>
             <TabbedShowLayout.Tab label="Accounts">
-                <ReferenceManyField reference="client" target="binary_user_id">
-                    <Datagrid bulkActionButtons={false}>
-                        <TextField source="loginid" />
-                        <ReferenceOneField label="Currency" reference="account_summary" target="client_loginid">
+                <ReferenceManyField reference="account" target="binary_user_id" >
+                    <Datagrid bulkActionButtons={false} rowClick="show">
+                        <TextField source="id" />
+                        <ReferenceOneField label="Currency" reference="account_summary" target="account_id">
                             <TextField source="currency_code" />
                         </ReferenceOneField>
-                        <ReferenceOneField label="Balance" reference="account_summary" target="client_loginid">
+                        <ReferenceOneField label="Balance" reference="account_summary" target="account_id">
                             <NumberField source="balance" transform={(value) => value.toFixed(2)} />
                         </ReferenceOneField>
-                        <ReferenceOneField label="Deposit" reference="account_summary" target="client_loginid">
+                        <ReferenceOneField label="Deposit" reference="account_summary" target="account_id">
                             <NumberField source="deposit" transform={(value) => value.toFixed(2)} />
                         </ReferenceOneField>
-                        <ReferenceOneField label="Withdrawal" reference="account_summary" target="client_loginid">
+                        <ReferenceOneField label="Withdrawal" reference="account_summary" target="account_id">
                             <NumberField source="withdrawal" transform={(value) => value.toFixed(2)} />
                         </ReferenceOneField>
-                        <ReferenceOneField label="Status" reference="account_summary" target="client_loginid">
+                        <ReferenceOneField label="Status" reference="account_summary" target="account_id">
                             <TextField source="status" />
                         </ReferenceOneField>
                     </Datagrid>
